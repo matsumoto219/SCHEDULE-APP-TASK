@@ -7,11 +7,11 @@
   </tr>
   <tr>
     <th>開始日</th>
-    <td><%= @schedule.start_date %></td>
+    <td><%= @schedule.start_date.strftime("%Y/%m/%d") if @schedule.start_date.present? %></td>
   </tr>
   <tr>
     <th>終了日</th>
-    <td><%= @schedule.end_date %></td>
+    <td><%= @schedule.end_date.strftime("%Y/%m/%d") if @schedule.end_date.present? %></td>
   </tr>
   <tr>
     <th>終日</th>
