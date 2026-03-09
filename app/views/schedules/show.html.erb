@@ -22,7 +22,7 @@
       </tr>
       <tr>
         <th class="bg-light" style="width: 180px;">メモ</th>
-        <td><%= @schedule.memo %></td>
+        <td style="word-break: break-word; white-space: pre-wrap;"><%= @schedule.memo %></td> <!-- 自動折り返し -->
       </tr>
     </table>
   </div>
