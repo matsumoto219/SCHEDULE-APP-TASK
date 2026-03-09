@@ -1,5 +1,8 @@
 <h1>スケジュール一覧</h1>
 
+<p>予定の合計数 : <%= @schedules.count %></p>
+<p>本日の日付 : <%= Date.current.strftime("%Y/%m/%d") %></p>
+
 <p><%= link_to "予定を新規追加する", new_schedule_path %></p>
 
 <table>
