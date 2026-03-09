@@ -27,9 +27,13 @@
             <td><%= schedule.end_date.strftime("%Y/%m/%d") if schedule.end_date.present? %></td>      <!-- yy/mm/dd -->
             <td><%= schedule.all_day ? "○" : "" %></td>                                               <!-- ○ or "" -->
             <td><%= schedule.updated_at.strftime("%Y/%m/%d %H:%M") if schedule.updated_at.present? %></td>  <!-- yyyy/mm/dd hh:mm -->
-            <td><%= link_to "詳細", schedule_path(schedule), class: "btn btn-secondary btn-sm" %></td>
-            <td><%= link_to "編集", edit_schedule_path(schedule), class: "btn btn-success btn-sm" %></td>
-            <td><%= link_to "削除", schedule_path(schedule), class: "btn btn-danger btn-sm", data: { turbo_method: :delete, turbo_confirm: "#{schedule.title} を削除しますか？\nこの操作は取り消せません。" } %></td>
+            <td><%= link_to "詳細", schedule_path(schedule), class: "btn btn-secondary btn-sm bi-card-list" %></td>
+            <td><%= link_to "編集", edit_schedule_path(schedule), class: "btn btn-success btn-sm bi-pencil-square" %></td>
+            <td>
+              <%= link_to "削除", schedule_path(schedule),
+              data: { turbo_method: :delete, turbo_confirm: "#{schedule.title} を削除しますか？\nこの操作は取り消せません。" },
+              class: "btn btn-danger btn-sm bi-trash" %>
+            </td>
           </tr>
         <% end %>
       </tbody>
@@ -45,5 +49,5 @@
   </div>
 
   <!-- 新規追加ボタン -->
-  <p class="mb-3"><%= link_to "予定を新規追加", new_schedule_path, class: "btn btn-primary" %></p>
+  <p class="mb-3"><%= link_to "予定を新規追加", new_schedule_path, class: "btn btn-primary bi-plus-lg" %></p>
 </div>

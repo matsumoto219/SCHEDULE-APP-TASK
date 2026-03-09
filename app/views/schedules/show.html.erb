@@ -30,11 +30,11 @@
   <!-- ボタンエリア -->
   <div class="d-flex justify-content-between mt-3">
     <div>
-      <%= link_to "一覧に戻る", schedules_path, class: "btn btn-secondary" %>
+      <%= link_to "一覧に戻る", schedules_path, class: "btn btn-secondary bi-chevron-compact-left" %>
     </div>
     <div class="d-flex gap-2">
-      <%= link_to "編集する", edit_schedule_path(@schedule), class: "btn btn-success" %>
-      <%= link_to "削除", schedule_path(@schedule), class: "btn btn-danger", data: { turbo_method: :delete, turbo_confirm: "#{@schedule.title} を削除しますか？\nこの操作は取り消せません。" } %>
+      <%= link_to "編集する", edit_schedule_path(@schedule), class: "btn btn-success bi-pencil-square" %>
+      <%= link_to "削除", schedule_path(@schedule), class: "btn btn-danger bi-trash", data: { turbo_method: :delete, turbo_confirm: "#{@schedule.title} を削除しますか？\nこの操作は取り消せません。" } %>
     </div>
   </div>
 </div>
