@@ -1,0 +1,32 @@
+<h1>スケジュール新規作成</h1>
+
+<%= form_with model: @schedule do |f| %>
+  <p>
+    タイトル<br>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    開始日<br>
+    <%= f.date_field :start_date %>
+  </p>
+
+  <p>
+    終了日<br>
+    <%= f.date_field :end_date %>
+  </p>
+
+  <p>
+    終日<br>
+    <%= f.check_box :all_day %>
+  </p>
+
+  <p>
+    メモ<br>
+    <%= f.text_area :memo %>
+  </p>
+
+  <p>
+    <%= f.submit "登録" %>
+  </p>
+<% end %>
