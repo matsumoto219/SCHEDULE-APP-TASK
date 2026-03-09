@@ -22,6 +22,7 @@ module ScheduleApp
     # in config/environments, which are processed later.
     #
     config.time_zone = "Tokyo" # タイムゾーンをJSTに設定
+    config.i18n.default_locale = :ja # ロケールを日本語に変更
     # config.eager_load_paths << Rails.root.join("extras")
   end
 end
