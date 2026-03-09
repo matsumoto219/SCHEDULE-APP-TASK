@@ -1,44 +1,66 @@
-<h1>スケジュール新規作成</h1>
+<div class="container mt-4">
+  <h1 class="mb-4 fs-5">スケジュール新規作成</h1>
 
-<!-- エラー表示 -->
-<% if @schedule.errors.any? %>
-  <div>
-    <h2><%= @schedule.errors.count %>件のエラーがあります。</h2>
-    <ul>
-      <% @schedule.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-    </ul>
-  </div>
-<% end %>
+  <!-- エラー表示 -->
+  <% if @schedule.errors.any? %>
+    <div class="alert alert-danger">
+      <ul class="mb-0">
+        <% @schedule.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
 
-<%= form_with model: @schedule do |f| %>
-  <p>
-    タイトル<br>
-    <%= f.text_field :title %>
-  </p>
+  <%= form_with model: @schedule do |f| %>
+    <!-- 入力カード -->
+    <div class="card shadow-sm">
+      <div class="card-body">
 
-  <p>
-    開始日<br>
-    <%= f.date_field :start_date %>
-  </p>
+        <!-- 1行目 タイトル -->
+        <div class="mb-3">
+          <label class="form-label">タイトル</label>
+          <%= f.text_field :title, class: "form-control" %>
+        </div>
 
-  <p>
-    終了日<br>
-    <%= f.date_field :end_date %>
-  </p>
+        <!-- 2行目 開始日 / 終了日 -->
+        <div class="row mb-3">
+          <div class="col-md-6">
+            <label class="form-label">開始日</label>
+            <%= f.date_field :start_date, class: "form-control" %>
+          </div>
 
-  <p>
-    終日<br>
-    <%= f.check_box :all_day %>
-  </p>
+          <div class="col-md-6">
+            <label class="form-label">終了日</label>
+            <%= f.date_field :end_date, class: "form-control" %>
+          </div>
+        </div>
 
-  <p>
-    メモ<br>
-    <%= f.text_area :memo %>
-  </p>
+        <!-- 3行目 終日チェック -->
+        <div class="form-check mb-3">
+          <%= f.check_box :all_day, class: "form-check-input" %>
+          <label class="form-check-label">
+            終日の場合はチェック
+          </label>
+        </div>
 
-  <p>
-    <%= f.submit "登録" %>
-  </p>
-<% end %>
+        <!-- 4行目 メモ -->
+        <div class="mb-3">
+          <label class="form-label">メモ</label>
+          <%= f.text_area :memo, class: "form-control", rows: 4 %>
+        </div>
+      </div>
+    </div>
+
+    <!-- ボタンエリア -->
+    <div class="d-flex justify-content-between mt-3">
+      <div>
+        <%= link_to "キャンセル", schedules_path, class: "btn btn-secondary" %>
+      </div>
+
+      <div>
+        <%= f.submit "登録", class: "btn btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
