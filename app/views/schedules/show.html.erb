@@ -25,6 +25,4 @@
 
 <p><%= link_to "一覧に戻る", schedules_path %></p>
 <p><%= link_to "編集する", edit_schedule_path(@schedule) %></p>
-<p>
-  <%= link_to "削除", schedule_path(@schedule), data: { turbo_method: :delete, turbo_confirm: "予定を削除しますか？" } %>
-</p>
+<p><%= link_to "削除", schedule_path(@schedule), data: { turbo_method: :delete, turbo_confirm: "予定を削除しますか？" } %></p>
