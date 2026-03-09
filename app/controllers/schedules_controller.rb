@@ -49,6 +49,7 @@ class SchedulesController < ApplicationController
 
   private
 
+  # ストロングパラメータ
   def schedule_params
     params.require(:schedule).permit(:title, :start_date, :end_date, :all_day, :memo)
   end
