@@ -1,16 +1,21 @@
 class SchedulesController < ApplicationController
+  # READ
   def index
     @schedules = Schedule.all
   end
 
+  # READ
   def show
     @schedule = Schedule.find(params[:id])
   end
 
+
+  # CREATE
   def new
     @schedule = Schedule.new
   end
 
+  # CREATE
   def create
     @schedule = Schedule.new(schedule_params)
     if @schedule.save
@@ -20,10 +25,12 @@ class SchedulesController < ApplicationController
     end
   end
 
+  # UPDATE
   def edit
     @schedule = Schedule.find(params[:id])
   end
 
+  # UPDATE
   def update
     @schedule = Schedule.find(params[:id])
     if @schedule.update(schedule_params)
@@ -33,6 +40,7 @@ class SchedulesController < ApplicationController
     end
   end
 
+  # DELETE
   def destroy
     @schedule = Schedule.find(params[:id])
     @schedule.destroy
